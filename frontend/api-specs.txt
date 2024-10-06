@@ -1,5 +1,13 @@
 Generate OTP URL
 /generate_otp/{github_id}
 
-Verify 
-/verify/{github_id}
+Verify URL
+/verify/{github_id}/{otp}
+
+for running backend
+1)Make venv
+    python -m venv .venv
+2)Add it to .gitignore and commit
+
+3)Install requirement.txt
+pip install -r backend/requirement.txt
