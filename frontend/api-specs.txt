@@ -1,0 +1,5 @@
+Generate OTP URL
+/generate_otp/{github_id}
+
+Verify 
+/verify/{github_id}
