@@ -25,6 +25,8 @@ def generate_otp(github_id: str):
 def verify(github_id: str, otp: str):
     if github_id == "invalid":
         return "Invalid ID", 400
+    if github_id == "timeout":
+        return "timeout", 400
     #mainiting list of github_id and otp if not found
     if github_id not in otp_storage:
         return "User not found", 404
