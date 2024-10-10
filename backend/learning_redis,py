@@ -1,0 +1,3 @@
+m ={}
+m["Hi"] = "You can do it"
+print(m.get("You can do it"))
