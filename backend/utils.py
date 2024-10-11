@@ -1,6 +1,7 @@
 import requests
 import redis
-
+import random
+import string
 processing_list = []
 #verified must be in the db what if server is off
 verified_list = []
@@ -12,12 +13,17 @@ def github_exists(github_id:str):
     res = requests.get(url=f"{base_url}/{github_id}", timeout=5)
     return res.status_code == 200
 
-def processing_request(github_id:str):
+def processing(github_id:str):
     return github_id in processing_list
 
 #Can givee tries
 def already_verified(github_id:str):
     return github_id in verified_list
+def get_otp():
+    length = 8
+    letters_and_digits = string.ascii_letters + string.digits  # Combine letters and digits
+    return ''.join(random.choice(letters_and_digits) for _ in range(length))
+
 
 def otp_expired(github_id:str):
     pass
@@ -31,7 +37,7 @@ def README_exists(github_id:str):
     print(res)
     return res.status_code == 200
 
-def append_g(github_id:str,otp:str):
+def append_db(github_id:str,otp:str):
     pass
 
 def append_to_processing_list(github_id:str):
